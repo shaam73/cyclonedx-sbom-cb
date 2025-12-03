@@ -21,7 +21,7 @@ jobs:
 
       - name: Step3 Install Dependencies
         run: npm install
-        run: npm install --global @cyclonedx/cyclonedx-npm
+             npm install --global @cyclonedx/cyclonedx-npm
         
       - name: Step4 NPM Audit Scan and Generate Report in JSON Format
         run: cyclonedx-npm
@@ -36,7 +36,7 @@ jobs:
 
       - name: Send POST request ASE
         run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.155.225:8880/callback
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.186.138:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://35.219.137.114:8880/callback http://35.219.155.72:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}'  http://35.219.137.114:8880/callback http://35.219.155.72:8880/callback
           
