@@ -16,14 +16,15 @@ jobs:
       - name: Step2 Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ''
+          node-version: '2.1.0'
           # node-version: '1.19.3'
 
       - name: Step3 Install Dependencies
-        run: npm install -g @cyclonedx/cyclonedx-cli
-
+        run: npm install
+        run: npm install --global @cyclonedx/cyclonedx-npm
+        
       - name: Step4 NPM Audit Scan and Generate Report in JSON Format
-        run: cyclonedx-bom -o sbom.json
+        run: cyclonedx-npm
         # run: cyclonedx-bom --json
         continue-on-error: true
 
@@ -31,11 +32,11 @@ jobs:
        # uses: actions/upload-artifact@v4
         #with:
          # name: upload sbom report to github.com
-          #path: sbom.json
+          #path: package.json
 
       - name: Send POST request ASE
         run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sbom.json" http://35.219.155.225:8880/callback
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.155.225:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://35.219.137.114:8880/callback http://35.219.155.72:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}'  http://35.219.137.114:8880/callback http://35.219.155.72:8880/callback
           
