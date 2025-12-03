@@ -20,7 +20,7 @@ jobs:
           # node-version: '1.19.3'
 
       - name: Step3 Install Dependencies
-        run: npm install,
+        run: npm install
               npm install --global @cyclonedx/cyclonedx-npm
         
       - name: Step4 NPM Audit Scan and Generate Report in JSON Format
