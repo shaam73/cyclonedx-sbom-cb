@@ -26,7 +26,7 @@ jobs:
         run: npm install --global @cyclonedx/cyclonedx-npm
         
       - name: Step5 NPM Audit Scan and Generate Report in JSON Format (default)
-        run: cyclonedx-npm
+        run: cyclonedx-npm -o sca_cyclone.json
         # run: cyclonedx-bom --json
         continue-on-error: true
 
@@ -38,4 +38,4 @@ jobs:
 
       - name: Step6 send POST request ASE
         run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.146.163:8880/callback
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sca_cyclone.json" http://35.219.146.163:8880/callback
