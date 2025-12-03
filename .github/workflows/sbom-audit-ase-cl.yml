@@ -21,9 +21,11 @@ jobs:
 
       - name: Step3 Install Dependencies
         run: npm install
-              npm install --global @cyclonedx/cyclonedx-npm
+      
+      - name: Step4 Install cyclonedx
+        run: npm install --global @cyclonedx/cyclonedx-npm
         
-      - name: Step4 NPM Audit Scan and Generate Report in JSON Format
+      - name: Step5 NPM Audit Scan and Generate Report in JSON Format (default)
         run: cyclonedx-npm
         # run: cyclonedx-bom --json
         continue-on-error: true
@@ -34,7 +36,7 @@ jobs:
          # name: upload sbom report to github.com
           #path: package.json
 
-      - name: Send POST request ASE
+      - name: Step6 send POST request ASE
         run: |
           curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.186.138:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://35.219.137.114:8880/callback http://35.219.155.72:8880/callback
