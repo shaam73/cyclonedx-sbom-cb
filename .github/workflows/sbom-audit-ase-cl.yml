@@ -32,6 +32,6 @@ jobs:
 
       - name: Step6 send POST request ASE
         run: |
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sca_cyclone.json" http://35.219.131.130:8880/callback
           # curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}'  http://35.219.137.114:8880/callback http://35.219.131.130:8880/callback
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sca_cyclone" http://35.219.131.130:8880/callback
           
