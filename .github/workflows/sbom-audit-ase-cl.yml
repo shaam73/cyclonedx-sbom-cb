@@ -16,7 +16,7 @@ jobs:
       - name: Step2 Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ''
+          node-version: '1.16.1'
 
       - name: Step3 Install Dependencies
         run: npm install
