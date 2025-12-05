@@ -25,7 +25,7 @@ jobs:
         run: npm install --global @cyclonedx/cyclonedx-npm
         
       - name: Step5 NPM Audit Scan and Generate Report in JSON Format (default)
-        run: cyclonedx-npm --sv 1.19.3 -v --validate -o sca_cyclone.json
+        run: cyclonedx-npm --sv 1.2 -v --validate -o sca_cyclone.json
         #run: cyclonedx-npm -v
         continue-on-error: true
 
