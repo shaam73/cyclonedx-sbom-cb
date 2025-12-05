@@ -27,7 +27,7 @@ jobs:
         
       - name: Step5 NPM Audit Scan and Generate Report in JSON Format (default)
           # run: cyclonedx-npm -v --output-file sca_cyclone --output-format json
-        run: cyclonedx-npm
+        run: cyclonedx-npm -v
         #run: cyclonedx-npm -o results.json
         continue-on-error: true
 
